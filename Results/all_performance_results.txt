@@ -1,0 +1,540 @@
+==============================
+Model: struct | Fold: 1
+==============================
+--- E-value: 1e-1 ---
+
+Confusion Matrix:
+TN = 287112 FN = 0
+FP = 3 TP = 106
+Threshold: 0.1
+Q2 (Accuracy): 1.0
+MCC: 0.9861
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9725
+--- E-value: 1e-2 ---
+
+Confusion Matrix:
+TN = 287114 FN = 0
+FP = 1 TP = 106
+Threshold: 0.01
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9907
+--- E-value: 1e-3 ---
+
+Confusion Matrix:
+TN = 287115 FN = 0
+FP = 0 TP = 106
+Threshold: 0.001
+Q2 (Accuracy): 1.0
+MCC: 1.0
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 1.0
+--- E-value: 1e-4 ---
+
+Confusion Matrix:
+TN = 287115 FN = 1
+FP = 0 TP = 105
+Threshold: 0.0001
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 1.0
+--- E-value: 1e-5 ---
+
+Confusion Matrix:
+TN = 287115 FN = 1
+FP = 0 TP = 105
+Threshold: 1e-05
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 1.0
+--- E-value: 1e-6 ---
+
+Confusion Matrix:
+TN = 287115 FN = 1
+FP = 0 TP = 105
+Threshold: 1e-06
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 1.0
+--- E-value: 1e-7 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-07
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-8 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-08
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-9 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-09
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-10 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-10
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-11 ---
+
+Confusion Matrix:
+TN = 287115 FN = 4
+FP = 0 TP = 102
+Threshold: 1e-11
+Q2 (Accuracy): 1.0
+MCC: 0.9809
+FPR: 0.0
+TPR (Recall): 0.9623
+PPV (Precision): 1.0
+--- E-value: 1e-12 ---
+
+Confusion Matrix:
+TN = 287115 FN = 4
+FP = 0 TP = 102
+Threshold: 1e-12
+Q2 (Accuracy): 1.0
+MCC: 0.9809
+FPR: 0.0
+TPR (Recall): 0.9623
+PPV (Precision): 1.0
+==============================
+Model: struct | Fold: 2
+==============================
+--- E-value: 1e-1 ---
+
+Confusion Matrix:
+TN = 287111 FN = 1
+FP = 3 TP = 104
+Threshold: 0.1
+Q2 (Accuracy): 1.0
+MCC: 0.9812
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 0.972
+--- E-value: 1e-2 ---
+
+Confusion Matrix:
+TN = 287113 FN = 1
+FP = 1 TP = 104
+Threshold: 0.01
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 0.9905
+--- E-value: 1e-3 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 0 TP = 104
+Threshold: 0.001
+Q2 (Accuracy): 1.0
+MCC: 0.9952
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 1.0
+--- E-value: 1e-4 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 0 TP = 104
+Threshold: 0.0001
+Q2 (Accuracy): 1.0
+MCC: 0.9952
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 1.0
+--- E-value: 1e-5 ---
+
+Confusion Matrix:
+TN = 287114 FN = 3
+FP = 0 TP = 102
+Threshold: 1e-05
+Q2 (Accuracy): 1.0
+MCC: 0.9856
+FPR: 0.0
+TPR (Recall): 0.9714
+PPV (Precision): 1.0
+--- E-value: 1e-6 ---
+
+Confusion Matrix:
+TN = 287114 FN = 3
+FP = 0 TP = 102
+Threshold: 1e-06
+Q2 (Accuracy): 1.0
+MCC: 0.9856
+FPR: 0.0
+TPR (Recall): 0.9714
+PPV (Precision): 1.0
+--- E-value: 1e-7 ---
+
+Confusion Matrix:
+TN = 287114 FN = 3
+FP = 0 TP = 102
+Threshold: 1e-07
+Q2 (Accuracy): 1.0
+MCC: 0.9856
+FPR: 0.0
+TPR (Recall): 0.9714
+PPV (Precision): 1.0
+--- E-value: 1e-8 ---
+
+Confusion Matrix:
+TN = 287114 FN = 4
+FP = 0 TP = 101
+Threshold: 1e-08
+Q2 (Accuracy): 1.0
+MCC: 0.9808
+FPR: 0.0
+TPR (Recall): 0.9619
+PPV (Precision): 1.0
+--- E-value: 1e-9 ---
+
+Confusion Matrix:
+TN = 287114 FN = 4
+FP = 0 TP = 101
+Threshold: 1e-09
+Q2 (Accuracy): 1.0
+MCC: 0.9808
+FPR: 0.0
+TPR (Recall): 0.9619
+PPV (Precision): 1.0
+--- E-value: 1e-10 ---
+
+Confusion Matrix:
+TN = 287114 FN = 4
+FP = 0 TP = 101
+Threshold: 1e-10
+Q2 (Accuracy): 1.0
+MCC: 0.9808
+FPR: 0.0
+TPR (Recall): 0.9619
+PPV (Precision): 1.0
+--- E-value: 1e-11 ---
+
+Confusion Matrix:
+TN = 287114 FN = 6
+FP = 0 TP = 99
+Threshold: 1e-11
+Q2 (Accuracy): 1.0
+MCC: 0.971
+FPR: 0.0
+TPR (Recall): 0.9429
+PPV (Precision): 1.0
+--- E-value: 1e-12 ---
+
+Confusion Matrix:
+TN = 287114 FN = 7
+FP = 0 TP = 98
+Threshold: 1e-12
+Q2 (Accuracy): 1.0
+MCC: 0.9661
+FPR: 0.0
+TPR (Recall): 0.9333
+PPV (Precision): 1.0
+==============================
+Model: seq | Fold: 1
+==============================
+--- E-value: 1e-1 ---
+
+Confusion Matrix:
+TN = 287080 FN = 0
+FP = 35 TP = 106
+Threshold: 0.1
+Q2 (Accuracy): 0.9999
+MCC: 0.867
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.7518
+--- E-value: 1e-2 ---
+
+Confusion Matrix:
+TN = 287102 FN = 0
+FP = 13 TP = 106
+Threshold: 0.01
+Q2 (Accuracy): 1.0
+MCC: 0.9438
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.8908
+--- E-value: 1e-3 ---
+
+Confusion Matrix:
+TN = 287107 FN = 0
+FP = 8 TP = 106
+Threshold: 0.001
+Q2 (Accuracy): 1.0
+MCC: 0.9643
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9298
+--- E-value: 1e-4 ---
+
+Confusion Matrix:
+TN = 287111 FN = 0
+FP = 4 TP = 106
+Threshold: 0.0001
+Q2 (Accuracy): 1.0
+MCC: 0.9816
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9636
+--- E-value: 1e-5 ---
+
+Confusion Matrix:
+TN = 287113 FN = 1
+FP = 2 TP = 105
+Threshold: 1e-05
+Q2 (Accuracy): 1.0
+MCC: 0.9859
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 0.9813
+--- E-value: 1e-6 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 1 TP = 105
+Threshold: 1e-06
+Q2 (Accuracy): 1.0
+MCC: 0.9906
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 0.9906
+--- E-value: 1e-7 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 1 TP = 105
+Threshold: 1e-07
+Q2 (Accuracy): 1.0
+MCC: 0.9906
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 0.9906
+--- E-value: 1e-8 ---
+
+Confusion Matrix:
+TN = 287115 FN = 1
+FP = 0 TP = 105
+Threshold: 1e-08
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 1.0
+--- E-value: 1e-9 ---
+
+Confusion Matrix:
+TN = 287115 FN = 1
+FP = 0 TP = 105
+Threshold: 1e-09
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 0.9906
+PPV (Precision): 1.0
+--- E-value: 1e-10 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-10
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-11 ---
+
+Confusion Matrix:
+TN = 287115 FN = 2
+FP = 0 TP = 104
+Threshold: 1e-11
+Q2 (Accuracy): 1.0
+MCC: 0.9905
+FPR: 0.0
+TPR (Recall): 0.9811
+PPV (Precision): 1.0
+--- E-value: 1e-12 ---
+
+Confusion Matrix:
+TN = 287115 FN = 3
+FP = 0 TP = 103
+Threshold: 1e-12
+Q2 (Accuracy): 1.0
+MCC: 0.9857
+FPR: 0.0
+TPR (Recall): 0.9717
+PPV (Precision): 1.0
+==============================
+Model: seq | Fold: 2
+==============================
+--- E-value: 1e-1 ---
+
+Confusion Matrix:
+TN = 287081 FN = 0
+FP = 33 TP = 105
+Threshold: 0.1
+Q2 (Accuracy): 0.9999
+MCC: 0.8722
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.7609
+--- E-value: 1e-2 ---
+
+Confusion Matrix:
+TN = 287103 FN = 0
+FP = 11 TP = 105
+Threshold: 0.01
+Q2 (Accuracy): 1.0
+MCC: 0.9514
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9052
+--- E-value: 1e-3 ---
+
+Confusion Matrix:
+TN = 287108 FN = 0
+FP = 6 TP = 105
+Threshold: 0.001
+Q2 (Accuracy): 1.0
+MCC: 0.9726
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9459
+--- E-value: 1e-4 ---
+
+Confusion Matrix:
+TN = 287109 FN = 0
+FP = 5 TP = 105
+Threshold: 0.0001
+Q2 (Accuracy): 1.0
+MCC: 0.977
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9545
+--- E-value: 1e-5 ---
+
+Confusion Matrix:
+TN = 287112 FN = 0
+FP = 2 TP = 105
+Threshold: 1e-05
+Q2 (Accuracy): 1.0
+MCC: 0.9906
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9813
+--- E-value: 1e-6 ---
+
+Confusion Matrix:
+TN = 287113 FN = 0
+FP = 1 TP = 105
+Threshold: 1e-06
+Q2 (Accuracy): 1.0
+MCC: 0.9953
+FPR: 0.0
+TPR (Recall): 1.0
+PPV (Precision): 0.9906
+--- E-value: 1e-7 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 0 TP = 104
+Threshold: 1e-07
+Q2 (Accuracy): 1.0
+MCC: 0.9952
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 1.0
+--- E-value: 1e-8 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 0 TP = 104
+Threshold: 1e-08
+Q2 (Accuracy): 1.0
+MCC: 0.9952
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 1.0
+--- E-value: 1e-9 ---
+
+Confusion Matrix:
+TN = 287114 FN = 1
+FP = 0 TP = 104
+Threshold: 1e-09
+Q2 (Accuracy): 1.0
+MCC: 0.9952
+FPR: 0.0
+TPR (Recall): 0.9905
+PPV (Precision): 1.0
+--- E-value: 1e-10 ---
+
+Confusion Matrix:
+TN = 287114 FN = 2
+FP = 0 TP = 103
+Threshold: 1e-10
+Q2 (Accuracy): 1.0
+MCC: 0.9904
+FPR: 0.0
+TPR (Recall): 0.981
+PPV (Precision): 1.0
+--- E-value: 1e-11 ---
+
+Confusion Matrix:
+TN = 287114 FN = 3
+FP = 0 TP = 102
+Threshold: 1e-11
+Q2 (Accuracy): 1.0
+MCC: 0.9856
+FPR: 0.0
+TPR (Recall): 0.9714
+PPV (Precision): 1.0
+--- E-value: 1e-12 ---
+
+Confusion Matrix:
+TN = 287114 FN = 4
+FP = 0 TP = 101
+Threshold: 1e-12
+Q2 (Accuracy): 1.0
+MCC: 0.9808
+FPR: 0.0
+TPR (Recall): 0.9619
+PPV (Precision): 1.0
