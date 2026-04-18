@@ -2,14 +2,9 @@
 
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![HMMER](https://img.shields.io/badge/HMMER-3.4-green)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS-lightgrey)
 
 > Building and comparing **structure-based** vs **sequence-based** Profile Hidden Markov Models for Kunitz/BPTI-type protease inhibitor domain (Pfam PF00014) detection, evaluated by 2-fold cross-validation on Swiss-Prot data.
-
-**Course:** Laboratory of Bioinformatics 1 — Alma Mater Studiorum, Università di Bologna  
-**Instructors:** Prof. R. Casadio, Prof. E. Capriotti, Prof. P. Martelli  
-**Group 7:** Negin · Mahan Balooei · Kimia Kanouni
 
 ---
 
@@ -364,15 +359,3 @@ Large files are excluded from this repository due to size constraints. They can 
 The trained HMMs (`structure_based.hmm`, `sequence_based.hmm`) and both alignments are included and can be used directly for Kunitz domain detection without re-running the full pipeline.
 
 ---
-
-## 📧 Contact
-
-**Group 7 — Laboratory of Bioinformatics 1**  
-Department of Pharmacy and Biotechnology  
-Alma Mater Studiorum – Università di Bologna
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
