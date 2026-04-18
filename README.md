@@ -325,16 +325,3 @@ Large files are excluded from this repository due to size constraints. They can 
 
 The trained HMMs (`structure_based.hmm`, `sequence_based.hmm`) and both alignments are included and can be used directly for Kunitz domain detection without re-running the full pipeline.
 
----
-
-## 📧 Contact
-
-**Group 7 — Laboratory of Bioinformatics 1**  
-Department of Pharmacy and Biotechnology  
-Alma Mater Studiorum – Università di Bologna  
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
