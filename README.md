@@ -7,9 +7,6 @@
 
 > Building and comparing **structure-based** vs **sequence-based** Profile Hidden Markov Models for Kunitz/BPTI-type protease inhibitor domain (Pfam PF00014) detection, evaluated by 2-fold cross-validation on Swiss-Prot data.
 
-**Course:** Laboratory of Bioinformatics 1 — Alma Mater Studiorum, Università di Bologna  
-**Instructors:** Prof. R. Casadio, Prof. E. Capriotti, Prof. P. Martelli  
-**Group 7:** Negin · Mahan Balooei · Kimia Kanouni
 
 ---
 
