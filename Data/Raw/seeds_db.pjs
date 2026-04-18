@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "seeds_db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "kunitz_pdb_nr90.fasta",
+  "number-of-letters": 5891,
+  "number-of-sequences": 35,
+  "last-updated": "2026-04-17T21:31:00",
+  "number-of-volumes": 1,
+  "bytes-total": 156754,
+  "bytes-to-cache": 6311,
+  "files": [
+    "seeds_db.pdb",
+    "seeds_db.phr",
+    "seeds_db.pin",
+    "seeds_db.pot",
+    "seeds_db.psq",
+    "seeds_db.ptf",
+    "seeds_db.pto"
+  ]
+}
