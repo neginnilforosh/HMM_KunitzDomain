@@ -77,7 +77,7 @@ HMM_KunitzDomain/
 └── README.md
 ```
 
-Files marked ★ are the core scientific deliverables — the alignments and trained HMMs.
+
 
 ---
 
