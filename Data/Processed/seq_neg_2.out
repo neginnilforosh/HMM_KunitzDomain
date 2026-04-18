@@ -1,0 +1,20 @@
+#                                                                --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name         accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+# ------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+sp|P84555|TIQ7_RHISA  -          sequence_based       -            0.00073   23.4   0.1   0.00073   23.4   0.1   1.1   1   0   0   1   1   1   1 Kunitz-type serine protease inhibitor RsTIQ7 (Fragment) OS=Rhipicephalus sanguineus OX=34632 PE=1 SV=1
+sp|P85039|VKTC8_DABSI -          sequence_based       -             0.0068   20.3   0.1    0.0068   20.3   0.1   1.0   1   0   0   1   1   1   1 Kunitz-type serine protease inhibitor C8 (Fragment) OS=Daboia siamensis OX=343250 PE=1 SV=1
+sp|Q09JW3|KUNP2_ARGMO -          sequence_based       -               0.11   16.4   3.6      0.23   15.4   3.6   1.5   1   1   0   1   1   1   0 Monogrin 2 OS=Argas monolakensis OX=34602 GN=AM-30B PE=1 SV=1
+sp|P56409|KUNI_ORNMO  -          sequence_based       -               0.19   15.7   6.7      0.42   14.6   1.1   2.8   3   1   0   3   3   3   0 Ornithodorin OS=Ornithodoros moubata OX=6938 PE=1 SV=1
+sp|W6HZ31|IRSPI_IXORI -          sequence_based       -               0.28   15.1   5.9      0.43   14.6   5.9   1.3   1   0   0   1   1   1   0 Kunitz-type serine protease inhibitor IrSPI OS=Ixodes ricinus OX=34613 GN=SPI PE=1 SV=2
+sp|A2QRA0|CHSG_ASPNC  -          sequence_based       -                1.1   13.3   0.2       2.9   11.9   0.2   1.7   1   0   0   1   1   1   0 Chitin synthase G OS=Aspergillus niger (strain ATCC MYA-4892 / CBS 513.88 / FGSC A1513) OX=425011 GN=chsG PE=3 SV=1
+sp|P78746|CHSD_ASPFU  -          sequence_based       -                2.1   12.3   0.6       5.4   11.0   0.6   1.6   1   0   0   1   1   1   0 Chitin synthase D OS=Aspergillus fumigatus (strain ATCC MYA-4609 / CBS 101355 / FGSC A1100 / Af293) OX=330879 GN=chsD PE=3 SV=1
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      Data/Processed/sequence_based.hmm
+# Target file:     Data/Processed/neg_2.fasta
+# Option settings: hmmsearch --tblout Data/Processed/seq_neg_2.out --noali -E 10 --cpu 4 Data/Processed/sequence_based.hmm Data/Processed/neg_2.fasta 
+# Current dir:     /Users/negin/Downloads
+# Date:            Sat Apr 18 02:06:04 2026
+# [ok]
