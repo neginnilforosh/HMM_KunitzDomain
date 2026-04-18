@@ -76,8 +76,8 @@ HMM_KunitzDomain/
 ├── .gitignore
 └── README.md
 ```
-
 Files marked ★ are the core scientific deliverables — the alignments and trained HMMs.
+
 ---
 
 ## 🔬 Methodology
