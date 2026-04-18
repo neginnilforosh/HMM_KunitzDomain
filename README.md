@@ -7,6 +7,9 @@
 
 > Building and comparing **structure-based** vs **sequence-based** Profile Hidden Markov Models for Kunitz/BPTI-type protease inhibitor domain (Pfam PF00014) detection, evaluated by 2-fold cross-validation on Swiss-Prot data.
 
+**Course:** Laboratory of Bioinformatics 1 — Alma Mater Studiorum, Università di Bologna  
+**Instructors:** Prof. R. Casadio, Prof. E. Capriotti, Prof. P. Martelli  
+**Group 7:** Negin · Mahan Balooei · Kimia Kanouni
 
 ---
 
@@ -42,7 +45,7 @@ Both models achieve near-perfect classification (peak MCC ~0.99), but the **stru
 ## 📁 Repository Structure
 
 ```
-HMM_PF00014/
+HMM_KunitzDomain/
 │
 ├── Data/
 │   ├── Raw/
@@ -113,38 +116,52 @@ hmmbuild Data/Processed/structure_based.hmm Data/Processed/pdb_kunitz_nr_clean.a
 
 ```bash
 # Use structure_based.hmm to locate domain coordinates in Swiss-Prot positives
+# (generates Data/Processed/domain_hits.tbl used by extract_kunitz_domains.py)
 hmmsearch --domtblout Data/Processed/domain_hits.tbl --max -Z 1000 \
           Data/Processed/structure_based.hmm Data/Processed/ok_kunitz_clean.fasta
 
-# Extract domain subsequences
+# Extract domain-only subsequences (45–100 aa) from full Swiss-Prot sequences
 python3 Scripts/extract_kunitz_domains.py
 
-# Align with MUSCLE
+# Align domain sequences with MUSCLE
 muscle -in Data/Processed/kunitz_domains_swssprot.fasta \
        -out Data/Processed/seq_domains_aln.ali -clwstrict
 
-# Build HMM
+# Build sequence-based HMM
 hmmbuild Data/Processed/sequence_based.hmm Data/Processed/seq_domains_aln.ali
 ```
 
 ### 4. HMM Search (2-fold cross-validation)
 
 ```bash
-# For each model × each fold × positive/negative (8 searches total):
-hmmsearch -Z 1000 --max --tblout Data/Processed/struct_pos_1.out \
-          Data/Processed/structure_based.hmm Data/Processed/pos_1.fasta
-# ... (repeat for all combinations)
+# 8 searches total: 2 models × 2 folds × (pos + neg)
+for fold in 1 2; do
+    hmmsearch -Z 1000 --max --tblout Data/Processed/struct_pos_${fold}.out \
+              Data/Processed/structure_based.hmm Data/Processed/pos_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/struct_neg_${fold}.out \
+              Data/Processed/structure_based.hmm Data/Processed/neg_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/seq_pos_${fold}.out \
+              Data/Processed/sequence_based.hmm Data/Processed/pos_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/seq_neg_${fold}.out \
+              Data/Processed/sequence_based.hmm Data/Processed/neg_${fold}.fasta
+done
 ```
 
 ### 5. Performance Evaluation
 
 ```bash
-# Build .class files (ID | label | E-value), missing hits → E-value=10
+# Build .class files (format: ID label E-value)
+# Sequences with no hit are assigned E-value = 10
 python3 Scripts/build_class_files.py
 
 # Sweep E-value thresholds 10⁻¹ → 10⁻¹²
-for i in $(seq 1 12); do
-    python3 Scripts/performance.py Data/Processed/struct_set_1.class 1e-$i
+for model in struct seq; do
+    for fold in 1 2; do
+        for i in $(seq 1 12); do
+            python3 Scripts/performance.py \
+                Data/Processed/${model}_set_${fold}.class 1e-$i
+        done
+    done
 done
 ```
 
@@ -201,8 +218,8 @@ The few remaining false negatives (1–3 per fold) are likely genuine Kunitz dom
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/HMM_PF00014.git
-cd HMM_PF00014
+git clone https://github.com/neginnilforosh/HMM_KunitzDomain.git
+cd HMM_KunitzDomain
 conda env create -f environment.yml
 conda activate hmm-kunitz
 ```
@@ -220,75 +237,99 @@ conda activate hmm-kunitz
 # Human:     https://www.uniprot.org/uniprotkb?query=(database:pfam+PF00014)+AND+reviewed:true+AND+organism_id:9606
 # Non-human: https://www.uniprot.org/uniprotkb?query=(database:pfam+PF00014)+AND+reviewed:true+NOT+organism_id:9606
 # Negative:  https://www.uniprot.org/uniprotkb?query=reviewed:true+NOT+(database:pfam+PF00014)
-# → Save as: Data/Raw/human_kunitz.fasta, nothuman_kunitz.fasta, human_notkunitz.fasta
+# → Save as: Data/Raw/human_kunitz.fasta, Data/Raw/nothuman_kunitz.fasta, Data/Raw/human_notkunitz.fasta
 
 # PDB structures — use pdb_ids.txt with RCSB batch download
-# https://www.rcsb.org/downloads → paste pdb_ids.txt → download PDB format
-# → Save to: Data/Raw/pdb_structures/
+# https://www.rcsb.org/downloads → paste contents of Data/Raw/pdb_ids.txt → select PDB format
+# → Save all .pdb files to: Data/Raw/pdb_structures/
 ```
 
-### Step 2 — Process and cluster
+### Step 2 — Process and cluster positive set
 
 ```bash
+# Combine human and non-human Kunitz sequences
 cat Data/Raw/human_kunitz.fasta Data/Raw/nothuman_kunitz.fasta > Data/Raw/all_kunitz.fasta
 
+# Cluster at 90% identity with CD-HIT
 cd-hit -i Data/Raw/all_kunitz.fasta -o Data/Processed/ok_kunitz.fasta -c 0.90 -n 5
 
-# BLASTp contamination filter (≥95% identity to PDB seeds)
+# BLASTp contamination filter — remove sequences ≥95% identical to PDB seeds
 makeblastdb -in Data/Processed/kunitz_true_seeds.fasta -dbtype prot -out Data/Raw/seeds_db
-blastp -query Data/Processed/ok_kunitz.fasta -db Data/Raw/seeds_db -outfmt 6 -out Data/Raw/blast_results.txt
+blastp -query Data/Processed/ok_kunitz.fasta -db Data/Raw/seeds_db \
+       -outfmt 6 -out Data/Raw/blast_results.txt -evalue 1e-3
 awk '$3 >= 95 {print $1}' Data/Raw/blast_results.txt | sort -u > Data/Processed/contaminated_ids.txt
 
-# Split into 2 folds
+# Remove contaminated sequences
+python3 -c "
+from Bio import SeqIO
+contaminated = set(open('Data/Processed/contaminated_ids.txt').read().split())
+records = [r for r in SeqIO.parse('Data/Processed/ok_kunitz.fasta', 'fasta')
+           if r.id not in contaminated]
+SeqIO.write(records, 'Data/Processed/ok_kunitz_clean.fasta', 'fasta')
+print(f'Kept {len(records)} sequences after contamination removal')
+"
+
+# Split into 2 folds (positives)
 python3 -c "
 from Bio import SeqIO
 records = list(SeqIO.parse('Data/Processed/ok_kunitz_clean.fasta', 'fasta'))
 SeqIO.write(records[::2],  'Data/Processed/pos_1.fasta', 'fasta')
 SeqIO.write(records[1::2], 'Data/Processed/pos_2.fasta', 'fasta')
+print(f'pos_1: {len(records[::2])} | pos_2: {len(records[1::2])}')
 "
+
+# Split into 2 folds (negatives)
 python3 -c "
 from Bio import SeqIO
 records = list(SeqIO.parse('Data/Raw/human_notkunitz.fasta', 'fasta'))
 SeqIO.write(records[::2],  'Data/Processed/neg_1.fasta', 'fasta')
 SeqIO.write(records[1::2], 'Data/Processed/neg_2.fasta', 'fasta')
+print(f'neg_1: {len(records[::2])} | neg_2: {len(records[1::2])}')
 "
 ```
 
 ### Step 3 — Build HMMs
 
 ```bash
-# Structure-based: alignment already provided in Data/Processed/pdb_kunitz_nr_clean.ali
+# Structure-based HMM — alignment already provided
 hmmbuild Data/Processed/structure_based.hmm Data/Processed/pdb_kunitz_nr_clean.ali
 
-# Sequence-based: extract domain regions from Swiss-Prot positives
+# Sequence-based HMM — extract domain regions from Swiss-Prot positives
+# Step 3a: locate domain coordinates using the structure-based HMM
 hmmsearch --domtblout Data/Processed/domain_hits.tbl --max -Z 1000 \
           Data/Processed/structure_based.hmm Data/Processed/ok_kunitz_clean.fasta
+
+# Step 3b: extract domain subsequences (reads domain_hits.tbl automatically)
 python3 Scripts/extract_kunitz_domains.py
+
+# Step 3c: align with MUSCLE and build HMM
 muscle -in Data/Processed/kunitz_domains_swssprot.fasta \
        -out Data/Processed/seq_domains_aln.ali -clwstrict
 hmmbuild Data/Processed/sequence_based.hmm Data/Processed/seq_domains_aln.ali
 ```
 
-### Step 4 — Run hmmsearch (8 searches)
+### Step 4 — Run hmmsearch (8 searches total)
 
 ```bash
-for model in structure sequence; do
-    for fold in 1 2; do
-        hmmsearch -Z 1000 --max \
-          --tblout Data/Processed/${model:0:3}_pos_${fold}.out \
-          Data/Processed/${model}_based.hmm Data/Processed/pos_${fold}.fasta
-        hmmsearch -Z 1000 --max \
-          --tblout Data/Processed/${model:0:3}_neg_${fold}.out \
-          Data/Processed/${model}_based.hmm Data/Processed/neg_${fold}.fasta
-    done
+for fold in 1 2; do
+    hmmsearch -Z 1000 --max --tblout Data/Processed/struct_pos_${fold}.out \
+              Data/Processed/structure_based.hmm Data/Processed/pos_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/struct_neg_${fold}.out \
+              Data/Processed/structure_based.hmm Data/Processed/neg_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/seq_pos_${fold}.out \
+              Data/Processed/sequence_based.hmm Data/Processed/pos_${fold}.fasta
+    hmmsearch -Z 1000 --max --tblout Data/Processed/seq_neg_${fold}.out \
+              Data/Processed/sequence_based.hmm Data/Processed/neg_${fold}.fasta
 done
 ```
 
-### Step 5 — Evaluate
+### Step 5 — Evaluate performance
 
 ```bash
+# Build .class files (format: ID label E-value; undetected sequences get E-value=10)
 python3 Scripts/build_class_files.py
 
+# Sweep E-value thresholds 10⁻¹ → 10⁻¹²
 for model in struct seq; do
     for fold in 1 2; do
         for i in $(seq 1 12); do
@@ -322,3 +363,16 @@ Large files are excluded from this repository due to size constraints. They can 
 
 The trained HMMs (`structure_based.hmm`, `sequence_based.hmm`) and both alignments are included and can be used directly for Kunitz domain detection without re-running the full pipeline.
 
+---
+
+## 📧 Contact
+
+**Group 7 — Laboratory of Bioinformatics 1**  
+Department of Pharmacy and Biotechnology  
+Alma Mater Studiorum – Università di Bologna
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
