@@ -147,8 +147,7 @@ done
 ### 5. Performance Evaluation
 
 ```bash
-# Build .class files (format: ID label E-value)
-# Sequences with no hit are assigned E-value = 10
+# Build .class files (format: ID label E-value; undetected sequences get E-value=10)
 python3 Scripts/build_class_files.py
 
 # Sweep E-value thresholds 10⁻¹ → 10⁻¹²
@@ -176,6 +175,12 @@ done
 | **1e-6** | 0.9953 | **0.9856** ✅ | 0.9906 | **0.9953** ✅ |
 | 1e-8 | 0.9905 | 0.9808 | **0.9953** ✅ | 0.9952 |
 
+### MCC vs E-value Threshold
+
+![MCC vs E-value threshold for structure-based and sequence-based HMMs across both folds](Results/Figures/Figure_MCC_vs_Evalue.png)
+
+*MCC curves across E-value thresholds (2-fold cross-validation). Structure-based HMM (solid lines) peaks at 1e-5 in Fold 1 — three orders of magnitude more permissive than the sequence-based optimum at 1e-8. Both models peak at 1e-6 in Fold 2.*
+
 ### Structure-based HMM — Optimal Performance
 
 |  | Fold 1 | Fold 2 |
@@ -196,13 +201,23 @@ done
 | **TPR** | 0.9906 | 1.0000 |
 | **PPV** | 1.0000 | 0.9906 |
 
-### Key Figures
+### Confusion Matrices at Optimal Thresholds
 
-| Figure | Description |
-| --- | --- |
-| [MCC](Results/Figures/Figure_MCC_vs_Evalue.png) | MCC curves for both models |
-| [CM](Results/Figures/Figure_Confusion_Matrices.png) | Confusion matrices at optimal threshold |
-| [Dist](Results/Figures/Figure_Evalue_Distributions.png) | E-value score distributions |
+![Confusion matrices at optimal thresholds for both models and both folds](Results/Figures/Figure_Confusion_Matrices.png)
+
+*Top: Structure-based HMM at Fold 1 (1e-5, MCC = 0.9953) and Fold 2 (1e-6, MCC = 0.9856). Bottom: Sequence-based HMM at Fold 1 (1e-8, MCC = 0.9953) and Fold 2 (1e-6, MCC = 0.9953).*
+
+### E-value Score Distributions
+
+![E-value score distributions for Kunitz positives and non-Kunitz negatives](Results/Figures/Figure_Evalue_Distributions.png)
+
+*Density histogram of −log₁₀(E-value) for true Kunitz positives (structure-based: teal; sequence-based: salmon) and non-Kunitz negatives (gray). The dashed line marks the optimal threshold at 1e-5. The structure-based model pushes true positives to far more extreme E-values, producing a wider separation from the background.*
+
+### Fold Consistency Comparison
+
+![E-value fold consistency comparison](Results/Figures/Figure_Evalue_Folds_Comparison.png)
+
+*E-value distributions compared across Fold 1 and Fold 2, confirming consistent model behaviour between folds.*
 
 ### Scientific Conclusion
 
