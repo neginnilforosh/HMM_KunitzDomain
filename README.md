@@ -368,14 +368,4 @@ Large files are excluded from this repository due to size constraints. They can 
 
 The trained HMMs (`structure_based.hmm`, `sequence_based.hmm`) and both alignments are included in the repository and can be used directly for Kunitz domain detection without re-running the full pipeline.
 
----
 
-## 📜 Citation
-
-If you use this pipeline or the trained HMMs, please cite:
-
-> Nilforosh N. *Building a Profile Hidden Markov Model for the Kunitz-Type Protease Inhibitor Domain.* Laboratory of Bioinformatics, Department of Pharmacy and Biotechnology, Alma Mater Studiorum – Università di Bologna, 2025.
-
----
-
-*Project developed for the Laboratory of Bioinformatics course (Associate Editor: Emidio Capriotti), MSc in Bioinformatics, University of Bologna.*
